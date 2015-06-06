@@ -4,6 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_amain_title">A Main Fragment</string>
+    <string name="fragment_bmain_title">B Main Fragment</string>
+    <string name="fragment_cmain_title">C Main Fragment</string>
+    <string name="display_bactivity">Display B Activity</string>
 </resources>

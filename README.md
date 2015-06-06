@@ -48,19 +48,20 @@ Developing this project consists of several discrete steps:
 
 ## Update MainActivity
 
-- [ ] Change `ActionBarActivity` to `AppCompatActivity`
+- Change `ActionBarActivity` to `AppCompatActivity`
 
 ## Create 3 new fragments
 
-- [ ] Create a new blank Fragment named `AMainFragment`
-- [ ] Create a new blank Fragment named `BMainFragment`
-- [ ] Create a new blank Fragment named `CMainFragment`
+- Create a new blank Fragment named `AMainFragment`
+- Create a new blank Fragment named `BMainFragment`
+- Create a new blank Fragment named `CMainFragment`
 
 ### Update the layouts of all 3 blank fragments
 
 - Set the TextView to display 'A Main Fragment', 'B Main Fragment', or 'C Main Fragment' for each of
   the fragments.
 - Change `FrameLayout` to `RelativeLayout`.
+- Change the `TextView` height to `wrap_content`.
 - Add a `Button` named `display_bactivity`.
 
 ### Update `MainFragment.java`
@@ -82,6 +83,7 @@ Developing this project consists of several discrete steps:
 
 - Delete the `TextView`
 - Insert a `FrameLayout` in the `RelativeLayout`
+- Delete the "Hello world" string(s) from `strings.xml`.
 
 ### Update `MainActivity` to use `MainFragment`
 
