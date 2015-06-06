@@ -123,7 +123,7 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 ## Create `BFragment`
 
 - Create a new blank Fragment named `BFragment`
-- When creating `BActivity`, set the parent to `MainActivity`
+
 
 ### Update `fragment_b.xml`
 
