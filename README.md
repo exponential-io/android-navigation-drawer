@@ -72,6 +72,7 @@ Developing this project consists of several discrete steps:
 - Change `ARG_PARAM1` to `ARG_MESSAGE` and set the value to `AMainFragment.MESSAGE`,
   `BMainFragment.MESSAGE` or `CMainFragment.MESSAGE` as appropriate.
 - Change `mParam1` to `message`
+- Change `param1` to `message` in the `newInstance` parameters
 - In `onCreateView`, split the return statement into assignment and return.
 - Delete the `onButtonPressed` method.
 - Change the Callbacks Interface method name to `displayBActivity` with no parameters.
