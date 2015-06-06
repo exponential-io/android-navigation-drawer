@@ -88,11 +88,25 @@ Developing this project consists of several discrete steps:
 - Insert a `FrameLayout` in the `RelativeLayout`
 - Delete the "Hello world" string(s) from `strings.xml`.
 
-### Update `MainActivity` to use `MainFragment`
+### Update `MainActivity` to use `AMainFragment`
 
-- Add `implements MainFragment.Callbacks` to the method declaration.
-- Override the `displayBActivity` Interface method.
-- Create an instance of `MainFragment` in the `onCreate` method and insert it into the Activity
+`MainActivity` will use `AMainFragment` as its default Fragment. When the app starts, the user will
+see `MainActivity` / `AMainFragment`. The user will be unable to change fragments until we
+implement the `NavigationDrawer` (which comes later in this tutorial).
+
+- Create an `Interface` named `MainFragmentCallbacks`.
+    - Create one interface method: `public void displayBActivity();`
+- Make the following updates in `AMainFragment`, `BMainFragment` and `CMainFragment`:
+    - Delete the `Callbacks` interface.
+    - Change `private Callbacks callbacks;` to `private MainFragmentCallbacks callbacks;`.
+    - In `onAttach`, change `callbacks = (Callbacks) activity;` to
+      `callbacks = (MainFragmentCallbacks) activity;`.
+    - In `onAttach`, change **Callbacks** to **MainFragmentCallbacks** in the exception.
+- Make the following updates to `MainActivity`:
+    - Add `implements MainFragmentCallbacks` to the `MainActivity` class declaration.
+    - Override the `displayBActivity` Interface method, but do not implement any functionality yet.
+    - Create an instance of `AMainFragment` in the `onCreate` method and insert it into the
+      `FrameLayout`.
 
 
 ## Create `BActivity`

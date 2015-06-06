@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 public class CMainFragment extends Fragment {
     private static final String ARG_MESSAGE = "CMainFragment.MESSAGE";
     private String message;
-    private Callbacks callbacks;
+    private MainFragmentCallbacks callbacks;
 
     /**
      * Factory method to create a new instance of CMainFragment.
@@ -52,9 +52,10 @@ public class CMainFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            callbacks = (Callbacks) activity;
+            callbacks = (MainFragmentCallbacks) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement Callbacks");
+            throw new ClassCastException(activity.toString()
+                + " must implement MainFragmentCallbacks");
         }
     }
 
@@ -62,10 +63,6 @@ public class CMainFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         callbacks = null;
-    }
-
-    public interface Callbacks {
-        public void displayBActivity();
     }
 
 }

@@ -1,7 +1,6 @@
 package io.exponential.androidnavigationdrawer;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
 public class BMainFragment extends Fragment {
     private static final String ARG_MESSAGE = "BMainFragment.MESSAGE";
     private String message;
-    private Callbacks callbacks;
+    private MainFragmentCallbacks callbacks;
 
     /**
      * Factory method to create a new instance of BMainFragment.
@@ -53,9 +52,10 @@ public class BMainFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            callbacks = (Callbacks) activity;
+            callbacks = (MainFragmentCallbacks) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement Callbacks");
+            throw new ClassCastException(activity.toString()
+                + " must implement MainFragmentCallbacks");
         }
     }
 
@@ -63,10 +63,6 @@ public class BMainFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         callbacks = null;
-    }
-
-    public interface Callbacks {
-        public void displayBActivity();
     }
 
 }

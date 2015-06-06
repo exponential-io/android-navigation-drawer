@@ -1,17 +1,25 @@
 package io.exponential.androidnavigationdrawer;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainFragmentCallbacks {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        AMainFragment aMainFragment = AMainFragment.newInstance("Hi from MainActivity.onCreate");
+        ft.add(R.id.container, aMainFragment);
+
+        ft.commit();
     }
 
     @Override
@@ -34,5 +42,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void displayBActivity() {
+        // do nothing yet...
     }
 }
