@@ -1,11 +1,12 @@
-# android-navigation-drawer
+# Android NavigationDrawer
 
-Example Android project for learning how to implement a NavigationDrawer that uses Material Design.
+Example Android project for learning how to implement a `NavigationDrawer` that uses Material
+Design.
 
 Developing this project consists of several discrete steps:
 
-- Create `ActionBar` via `Toolbar` that conforms to Material Design (aka an appbar)
-- Create `NavigationDrawer` that conforms to Material Design
+- Create a `Toolbar` and set as a Material Design compliant `ActionBar` (aka an appbar)
+- Create a `NavigationDrawer` that conforms to Material Design
 - Add a `RecyclerView` to the `NavigationDrawer` to display a menu
 - Display a different `Fragment` on click of each menu item in the `NavigationDrawer`
 
@@ -31,18 +32,22 @@ Developing this project consists of several discrete steps:
 
 ## Architecture
 
-- MainActivity
+- MainActivity.java
     - inflates: menu_main.xml
     - inflates: activity_main.xml
         - references: dimens.xml
         - references: themes.xml
             - references: colors.xml
-    - adds: AMainFragment
+    - implements: MainFragmentCallbacks.java
+    - adds: AMainFragment.java
         - inflates: fragment_amain.xml
-    - adds: BMainFragment
+        - uses instance of: MainFragmentCallbacks.java
+    - adds: BMainFragment.java
         - inflates: fragment_bmain.xml
-    - adds: CMainFragment
+        - uses instance of: MainFragmentCallbacks.java
+    - adds: CMainFragment.java
         - inflates: fragment_cmain.xml
+        - uses instance of: MainFragmentCallbacks.java
 
 
 
@@ -111,8 +116,8 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 
 ## Create `BActivity`
 
-- Create a new blank Activity named `BActivity`
-- `ActionBarActivity` to `AppCompatActivity`
+- Create a new blank Activity named `BActivity`. Set the hierarchical parent to `MainActivity`.
+- Change `ActionBarActivity` to `AppCompatActivity`.
 
 
 ## Create `BFragment`

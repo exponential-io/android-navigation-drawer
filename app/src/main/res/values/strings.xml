@@ -7,4 +7,7 @@
     <string name="fragment_bmain_title">B Main Fragment</string>
     <string name="fragment_cmain_title">C Main Fragment</string>
     <string name="display_bactivity">Display B Activity</string>
+    <string name="title_activity_b">BActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
