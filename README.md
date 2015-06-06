@@ -64,20 +64,22 @@ Developing this project consists of several discrete steps:
 - Change the `TextView` height to `wrap_content`.
 - Add a `Button` named `display_bactivity`.
 
-### Update `MainFragment.java`
+### Update the Java class of all 3 blank fragments
 
 - Change `import android.app.Fragment;` to `import android.support.v4.app.Fragment;`
 - Change `OnFragmentInteractionListener` to `Callbacks`
 - Change `mListener` to `callbacks`
-- Change `ARG_PARAM1` to `ARG_MESSAGE` and set the value to `MainFragment.MESSAGE`
+- Change `ARG_PARAM1` to `ARG_MESSAGE` and set the value to `AMainFragment.MESSAGE`,
+  `BMainFragment.MESSAGE` or `CMainFragment.MESSAGE` as appropriate.
 - Change `mParam1` to `message`
 - In `onCreateView`, split the return statement into assignment and return.
 - Delete the `onButtonPressed` method.
-- Change the Callbacks Interface method name to `displayBActivity`.
-- Delete `param2` and associated constants, local variables, everywhere in the Fragment.
+- Change the Callbacks Interface method name to `displayBActivity` with no parameters.
+- Delete `param2` / `ARG_PARAM2` / `mParam2` and associated constants, local variables, everywhere
+  in the Fragment.
 - Delete all of the `TODO` comments
-- Set the click listener for the `Button` in `fragment_main.xml`. Call the `displayBActivity` method
-  when the button is clicked.
+- Set the click listener for the `Button`. Call the `displayBActivity` Interface method when the
+  button is clicked.
 
 ### Update `activity_main.xml`.
 
