@@ -17,13 +17,13 @@ public class AMainFragment extends Fragment {
     /**
      * Factory method to create a new instance of AMainFragment.
      *
-     * @param messsage Message passed from Activity during creation of a new Fragment instance.
+     * @param message Message passed from Activity during creation of a new Fragment instance.
      * @return A new instance of fragment AMainFragment.
      */
-    public static AMainFragment newInstance(String messsage) {
+    public static AMainFragment newInstance(String message) {
         AMainFragment fragment = new AMainFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_MESSAGE, messsage);
+        args.putString(ARG_MESSAGE, message);
         fragment.setArguments(args);
         return fragment;
     }
