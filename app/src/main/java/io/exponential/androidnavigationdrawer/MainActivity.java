@@ -1,6 +1,7 @@
 package io.exponential.androidnavigationdrawer;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity
     implements MainFragmentCallbacks, NavigationDrawerFragment.Callbacks {
 
     private DrawerLayout drawerLayout;
+    private FrameLayout navigationDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity
 
         // NavigationDrawer
         drawerLayout = (DrawerLayout) findViewById(R.id.navigation_drawer_layout);
+        navigationDrawerLayout = (FrameLayout) findViewById(R.id.navigation_drawer);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, appbar,
             R.string.drawer_open, R.string.drawer_close) {
 
@@ -64,8 +68,10 @@ public class MainActivity extends AppCompatActivity
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeButtonEnabled(true);
+        }
     }
 
     @Override
@@ -73,6 +79,12 @@ public class MainActivity extends AppCompatActivity
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred
         actionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        actionBarDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -92,20 +104,32 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // ref: https://developer.android.com/training/implementing-navigation/nav-drawer.html#OpenClose
-        // TODO: Implement the show/hide of option menu icons
+        boolean drawerOpen = drawerLayout.isDrawerOpen(navigationDrawerLayout);
+
+        // Hide the Search options menu button when the navigation drawer is open, and show the
+        // Search options menu button when the navigation drawer is closed.
+        menu.findItem(R.id.action_search).setVisible(!drawerOpen);
 
         return super.onPrepareOptionsMenu(menu);
     }
 
+    /**
+     * Handle option menu item click events.
+     *
+     * ref: https://developer.android.com/reference/android/app/Activity.html#onOptionsItemSelected%28android.view.MenuItem%29
+     *
+     * @param item The options menu item that was clicked.
+     * @return True if no further event processing should occur.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        /*
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            // TODO: Implement settings.
             return true;
         }
 
@@ -115,20 +139,25 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
+        // If the following condition is true, then it indicates that the event has already been
+        // handled and that no further processing should occur.
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
-        */
 
         // Shorter form of the above logic using a switch statement
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                // handleSettings();
-                return true;
-            case R.id.action_search:
-                handleSearch();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+//        switch (item.getItemId()) {
+//            case R.id.action_settings:
+//                // handleSettings();
+//                return true;
+//            case R.id.action_search:
+//                handleSearch();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
     }
 
     private void handleSearch() {

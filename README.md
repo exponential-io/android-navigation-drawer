@@ -404,6 +404,28 @@ similar to those that are done on any new Fragment.
 Run the application. You should have a blank, all white, `NavigationDrawer`.
 
 
+## Show/hide the search button
+
+We need to hide the search option menu button when the `NavigationDrawer` is visible, and show the
+search option menu button when the `NavigationDrawer` is hidden.
+
+- Update `MainActivity` as follows:
+    - Create a new member variable:
+        - `private FrameLayout navigationDrawerLayout;`
+    - In `onCreate`, get a reference to the navigation drawer's layout.
+    - In `onCreate`, protect the call to `actionBar` by checking for not null.
+    - Override the `onConfigurationChanged` method.
+    - Update the `onPrepareOptionsMenu` method.
+    - Change the `onOptionsItemSelected` switch statment to a series of if statements.
+    - Update `onOptionsItemSelected` to check if we should stop further processing by checking
+      if `actionBarDrawerToggle.onOptionsItemSelected(item)` returns true.
+
+Run the application. The search icon in the `ActionBar` should now be hidden when the
+`NavigationDrawer` is opened, and should reappear when the `NavigationDrawer` is closed.
+
+
+## Make status bar transparent
+
 
 
 
