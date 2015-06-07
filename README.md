@@ -445,6 +445,18 @@ Run the application. The search icon in the `ActionBar` should now be hidden whe
 
 ### Update `activity_main.xml`
 
+- Insert a `ScrimInsetsFrameLayout` as the parent of the `navigation_drawer` `FrameLayout`.
+- Note: The path to `ScrimInsetsFrameLayout` must match the class in your project.
+- Update `ScrimInsetsFrameLayout` as follows:
+    - Add an id of `android:id="@+id/navigation_drawer_inset"`.
+    - Set the width equal to `android:layout_width="@dimen/navigation_drawer_width"`.
+    - Set the height equal to `android:layout_height="match_parent"`.
+    - Set the `layout_gravity` equal to `android:layout_gravity="start"`.
+    - Add `android:fitsSystemWindows="true"`.
+    - Add `app:insetForeground="#4000"`.
+
+
+
 ### Update `MainActivity`
 
 ### Update `fragment_navigation_drawer.xml`
