@@ -350,10 +350,22 @@ similar to those that are done on any new Fragment.
     - `values/dimens.xml`
     - `values-land/dimens.xml`
 
-### Add the `DrawerLayout` to `activity_main.xml`
+### Add `DrawerLayout` to `activity_main.xml`
 
 - Add a new root element of `android.support.v4.widget.DrawerLayout`.
-- Add a `FrameLayout` for the `NavigationDrawer`.
+- Move the following attributes from `LinearLayout` to `DrawerLayout`:
+    - `xmlns:android`
+    - `xmlns:tools`
+    - `tools:context`
+- Add the following attributes to `DrawerLayout`:
+    - `android:id="@+id/navigation_drawer_layout"`
+    - `xmlns:app="http://schemas.android.com/apk/res-auto"`
+    - `android:fitsSystemWindows="true"`
+- Add a `FrameLayout` for the `NavigationDrawer` below `LinearLayout`.
+- Add the following attributes to the `FrameLayout`:
+    - `android:layout_gravity="start"`
+    - `android:layout_width="@dimen/navigation_drawer_width"`
+    - `android:layout_height="match_parent"`
 
 ### Update `MainActivity`
 
