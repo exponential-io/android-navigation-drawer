@@ -302,6 +302,18 @@ We need to update the layout of both `MainActivity` and `BActivity` before we cr
     - In `LinearLayout`, use `android:orientation="vertical"`
     - In `FrameLayout`, delete `android:layout_below="@id/app_bar"`.
 
+
+## Create the `NavigationDrawerFragment` Fragment
+
+- Create a new blank Fragment named `NavigationDrawerFragment`.
+
+
+## Add `DrawerLayout` to `activity_layout.xml`
+
+
+## Download `ScrimInsetsFrameLayout.java` to your project
+
+
 ## Create the NavigationDrawer
 
 - in activity_main.xml, change the root element to `android.support.v4.widget.DrawerLayout`. Push
