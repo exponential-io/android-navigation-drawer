@@ -385,9 +385,21 @@ similar to those that are done on any new Fragment.
 - Update `fragment_bmain.xml` using the same steps as above.
 - Update `fragment_cmain.xml` using the same steps as above.
 
-### Update `MainActivity`
+### Update `MainActivity` to support `NavigationDrawerFragment` Fragment
 
-
+- Add `implements NavigationDrawerFragment.Callbacks` to the `MainActivity` class declaration.
+- Override the `placeholderCallback` method required by `NavigationDrawerFragment.Callbacks`.
+- Create two new member variables:
+    - `private DrawerLayout drawerLayout;`
+    - `private ActionBarDrawerToggle actionBarDrawerToggle;`
+- Create an instance of `NavigationDrawerFragment` and insert it into `navigation_drawer`.
+- Get a reference to the `DrawerLayout`.
+- Create a new `ActionBarDrawerToggle` and set it as the drawer listener via
+  `drawerLayout.setDrawerListener(actionBarDrawerToggle);`.
+- Update the `ActionBar` by calling both `setDisplayHomeAsUpEnabled()` and `setHomeButtonEnabled()`
+  with an argument of `true`.
+- Create the `onPostCreate` method.
+- Create the `onPrepareOptionsMenu` method.
 
 
 
