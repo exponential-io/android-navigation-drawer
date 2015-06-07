@@ -332,12 +332,32 @@ similar to those that are done on any new Fragment.
 - Rename the `onFragmentInteraction` interface method to `placeholderCallback` and change the method
   signature to `public void placeholderCallback(String placeholderArg);`.
 
+### Update `fragment_navigation_drawer.xml`
+
+- Change `FrameLayout` to `RelativeLayout`
+- Add the following attributes to the `RelativeLayout`
+    - `android:id="@+id/navigation_drawer"`
+    - `xmlns:app="http://schemas.android.com/apk/res-auto"`
+    - `app:theme="@style/Exponential.Theme.Light.NavigationDrawer"`
+-
+
+### Update the theme
+
+- Add the `ic_drawer.png` icon
+- Add open and close to `strings.xml`.
+- Review the `NavigationDrawer` styles in the following files:
+    - `values/styles.xml`
+    - `values-v21/styles.xml`
+    - `values/dimens.xml`
+    - `values-land/dimens.xml`
+
+### Add the `DrawerLayout` to `activity_main.xml`
+
+### Update `MainActivity`
 
 
 
 
-
-## Add `DrawerLayout` to `activity_layout.xml`
 
 
 ## Download `ScrimInsetsFrameLayout.java` to your project
