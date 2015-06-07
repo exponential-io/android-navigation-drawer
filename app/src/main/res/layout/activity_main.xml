@@ -1,4 +1,4 @@
-<android.support.v7.widget.DrawerLayout
+<android.support.v4.widget.DrawerLayout
     android:id="@+id/navigation_drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
-
 
     <LinearLayout
         android:orientation="vertical"
@@ -31,4 +30,4 @@
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"/>
 
-</android.support.v7.widget.DrawerLayout>
+</android.support.v4.widget.DrawerLayout>

@@ -401,6 +401,10 @@ similar to those that are done on any new Fragment.
 - Create the `onPostCreate` method.
 - Create the `onPrepareOptionsMenu` method.
 
+Run the application. You should have a blank, all white, `NavigationDrawer`.
+
+
+
 
 
 
