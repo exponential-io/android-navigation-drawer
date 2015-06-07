@@ -24,6 +24,9 @@ public class BActivity extends AppCompatActivity {
             .beginTransaction()
             .add(R.id.container, BFragment.newInstance())
             .commit();
+
+        // Enable up button on ActionBar to navigate to parent Activity
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
