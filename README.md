@@ -50,6 +50,7 @@ Developing this project consists of several discrete steps:
         - uses instance of: MainFragmentCallbacks.java
 
 
+# Section 1: Project setup
 
 ## Update MainActivity
 
@@ -161,6 +162,8 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 
 - In `MainActivity.displayBActivity()`, start `BActivity` via an `Intent` and `startActivity()`.
 
+
+# Section 2: Toolbar / ActionBar / app bar
 
 ## Update the theme
 
@@ -283,11 +286,82 @@ Repeat the same steps to add an option menu item to BActivity's menu. In a produ
 support different ActionBar Actions per Activity.
 
 
-## Additional reading
+# Section 3: NavigationDrawer
 
-- ActionBar: http://developer.android.com/guide/topics/ui/actionbar.html
-- Toolbar: http://developer.android.com/reference/android/support/v7/widget/Toolbar.html
-- Menus: http://developer.android.com/guide/topics/ui/menus.html
-- Material Design:
-    - http://developer.android.com/training/material/index.html
-    - http://www.google.com/design/spec/material-design/introduction.html
+## Update activity layouts
+
+We need to update the layout of both `MainActivity` and `BActivity` before we create the
+`NavigationDrawer`.
+
+- Make the following updates to `activity_layout.xml`:
+    - Change `RelativeLayout` to `LinearLayout`.
+    - In `LinearLayout`, use `android:orientation="vertical"`
+    - In `FrameLayout`, delete `android:layout_below="@id/app_bar"`.
+- Make the following updates to `activity_b.xml`:
+    - Change `RelativeLayout` to `LinearLayout`.
+    - In `LinearLayout`, use `android:orientation="vertical"`
+    - In `FrameLayout`, delete `android:layout_below="@id/app_bar"`.
+
+## Create the NavigationDrawer
+
+- in activity_main.xml, change the root element to `android.support.v4.widget.DrawerLayout`. Push
+  `LinearLayout` down one level in the layout's View hierarchy.
+- Set the width for the drawer in both `values/dimens.xml` and `values-land/dimens.xml`.
+- Create NavigationDrawerFragment
+    - Change 'import android.app.Fragment;' to `import android.support.v4.app.Fragment;`
+    - Make all other standard updates to a Fragment
+        - Change `OnFragmentInteractionListener` to `Callbacks`
+        - Change `mListener` to `callbacks`
+        - Delete the `public void onButtonPressed` method
+        - Rename the static args, the args members, and the newInstance() method as necessary
+        - In `onCreateView()`, get an instance of `View`, then return it.
+- Update fragment_navigation_drawer
+    - Change the root element from `FrameLayout` to `RelativeLayout`
+- Create an instance of `NavigationDrawerFragment` in `MainActivity` and insert it into
+  `activity_main_navigation_drawer` in `activity_main.xml`
+
+
+## NavigationDrawer theme
+
+- Create a style for navigation drawer
+- Set the theme in `fragment_navigation_drawer.xml` via `app:theme`
+- Add default 16dp padding to `fragment_navigation_drawer.xml`
+
+
+#### Add listeners for drawer events via `setDrawerListener()` in Activity
+
+Setting a listener for the NavigationDrawer is similar to setting a listener for a button or other
+clickable element.
+
+- Import hamburger image
+- update Activity onCreate
+    - drawerLayout
+    - drawerFragmentLayout
+    - drawerToggle
+    - setDrawerListener
+    - setDisplayHomeAsUpEnabled
+    - setHomeButtonEnabled
+- update Activity onPrepareOptionsMenu
+- override onPostCreate()
+- override onConfigurationChanged()
+- update onPrepareOptionsMenu()
+- Add app icon to toggle NavigationDrawer
+
+
+ref: https://developer.android.com/training/implementing-navigation/nav-drawer.html
+ref: https://medium.com/sebs-top-tips/material-navigation-drawer-sizing-558aea1ad266
+
+### Make NavigationDrawer appear under a transparent Status Bar
+
+- Save ScrimInsetsFrameLayout.java into my project
+    - https://github.com/google/iosched/blob/master/android/src/main/java/com/google/samples/apps/iosched/ui/widget/ScrimInsetsFrameLayout.java
+- Create res/values/attrs.xml
+- Update `activity_main.xml` by setting `android:fitsSystemWindows="true"` on both `DrawerLayout`
+  and `ScrimInsetsFrameLayout`.
+    - add ScrimInsetsFrameLayout
+- Update `fragment_navigation_drawer.xml`. (Major design update)
+- Add username, email, avatar to `NavigationDrawerFragment.java`
+- Update `MainActivity.java` to point drawerFragmentLayout to ScrimInsetsFrameLayout
+
+
+# Section 4: RecyclerView menu in NavigationDrawer
