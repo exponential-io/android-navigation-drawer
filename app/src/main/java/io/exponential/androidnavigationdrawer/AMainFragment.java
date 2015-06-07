@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 public class AMainFragment extends Fragment {
@@ -45,6 +46,16 @@ public class AMainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_amain, container, false);
+
+        // Event handlers
+        // Note: Define the onClickListener inline.
+        ((Button) view.findViewById(R.id.display_bactivity))
+            .setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    callbacks.displayBActivity();
+                }
+            });
 
         return view;
     }

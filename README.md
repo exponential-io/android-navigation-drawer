@@ -220,6 +220,25 @@ both need to be updated to use the `app_bar` `Toolbar` as the `ActionBar`.
 - In `BActivity.onCreate()` find the `app_bar` `Toolbar` and call `setSupportActionBar()`
 
 
+## Bug fix: Add missing `layout_below`
+
+If you try running the project at this point you'll notice two bugs:
+
+1. Incorrect layout
+2. Missing event handlers
+
+
+- Add `android:layout_below="@id/app_bar"` to `FrameLayout` in both `activity_main.xml` and
+  `activity_b.xml`.
+
+
+## Bug fix: Add missing event handlers
+
+- Make the following bug fixes in `AMainFragment`, `BMainFragment` and `CMainFragment`:
+    - Add an event handler for the `Button` in `onCreateView`. Define the `View.OnClickListener`
+      inline.
+
+
 ## Add the up button to the ActionBar
 
 - In `BActivity.onCreate()`, set `getSupportActionBar().setDisplayHomeAsUpEnabled(true);`
