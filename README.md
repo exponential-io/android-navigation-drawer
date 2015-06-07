@@ -434,11 +434,14 @@ Run the application. The search icon in the `ActionBar` should now be hidden whe
   `ScrimInsetsFrameLayout.java`:
     - https://github.com/google/iosched/blob/master/android/src/main/java/com/google/samples/apps/iosched/ui/widget/ScrimInsetsFrameLayout.java
 
-### Create `res/values/attrs.xml `
+### Create `res/values/attrs.xml`
 
 - Create a new resource file named `values/attrs.xml`.
 
 ### Import a few images / icons
+
+- Import an image with a dark background. Name this image `navigation_drawer_header.png`.
+- Import an avatar icon. Name this image `avatar.png`.
 
 ### Update `activity_main.xml`
 
