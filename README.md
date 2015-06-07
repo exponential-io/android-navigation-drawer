@@ -187,14 +187,16 @@ We are now going to update the theme to support Material Design. Also, we must d
   `android:theme="@style/Exponential.Theme.Light"`.
 
 
-## Create the ActionBar
+## Create the ActionBar (app bar)
 
-Next, we will create a Toolbar and set it as the ActionBar.
+Next, we will create a Toolbar and set it as the ActionBar. In terms of naming, Google has started
+to refer to the ActionBar as the "app bar". Therefore, we will name our Toolbar ActionBar as
+"appbar".
 
-- Create layout/actionbar.xml
+- Create layout/app_bar.xml
     - Set the root element to `android.support.v7.widget.Toolbar`.
     - Add `xmlns:app`
-    - Set `android:layout_height="@dimen/actionbar_height"`
+    - Set `android:layout_height="@dimen/app_bar_height"`
     - Add `app:theme`
     - Add `app:popupTheme`
 
