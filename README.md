@@ -133,9 +133,9 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 
 ### Update `BFragment.java`
 
-- Change `ActionBarActivity` to `AppCompatActivity`
 - Change `import android.app.Fragment;` to `import android.support.v4.app.Fragment;`.
-- Delete the `OnFragmentInteractionListener` Interface.
+- Delete the `OnFragmentInteractionListener` Interface as this Fragment will not communicate with
+  its parent Activity.
 - Delete `mListener`.
 - Delete `ARG_PARAM1` and `ARG_PARAM2`.
 - Delete `mParam1` and `mParam1` and `param1` and `param2` from all parts of the code.
