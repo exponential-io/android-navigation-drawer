@@ -426,11 +426,34 @@ Run the application. The search icon in the `ActionBar` should now be hidden whe
 
 ## Make status bar transparent
 
+### Download `ScrimInsetsFrameLayout.java` to your project
+
+- Create a new class named `ScrimInsetsFrameLayout`.
+- Add `extends FrameLayout` to the class declaration.
+- Copy the body of the class from the following URL and paste the code into
+  `ScrimInsetsFrameLayout.java`:
+    - https://github.com/google/iosched/blob/master/android/src/main/java/com/google/samples/apps/iosched/ui/widget/ScrimInsetsFrameLayout.java
+
+### Create `res/values/attrs.xml `
+
+- Create a new resource file named `values/attrs.xml`.
+
+### Import a few images / icons
+
+### Update `activity_main.xml`
+
+### Update `MainActivity`
+
+### Update `fragment_navigation_drawer.xml`
+
+### Update `NavigationDrawerFragment`
 
 
 
 
-## Download `ScrimInsetsFrameLayout.java` to your project
+
+
+
 
 
 ## Create the NavigationDrawer
