@@ -154,7 +154,7 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 
 ### Update `BActivity` to use `BFragment`
 
-- Create an instance of `BFragment` in the `onCreate` method and insert it into the Activity
+- Create an instance of `BFragment` in the `onCreate` method and insert it into the Activity.
 
 
 ## Start `BActivity` in `MainActivity.displayBActivity()`

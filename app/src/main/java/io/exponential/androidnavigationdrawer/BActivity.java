@@ -12,6 +12,13 @@ public class BActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b);
+
+        // Add the BFragment Fragment via chaining so that we don't have to create single use
+        // variables.
+        getSupportFragmentManager()
+            .beginTransaction()
+            .add(R.id.container, BFragment.newInstance())
+            .commit();
     }
 
     @Override
