@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <!-- Not used in theme -->
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#8BC34A</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#727272</color>
+    <!-- Using @android:color/white -->
+    <!--<color name="icons">#FFFFFF</color>-->
+    <color name="divider">#B6B6B6</color>
+
+    <!-- The following 2 colors are guesses and not checked against the Material Design spec -->
+    <!-- Using @android:color/white -->
+    <!--<color name="window_background">#FFFFFF</color>-->
+    <!-- Color of 3 buttons at bottom of screen on OnePlus -->
+    <color name="navigation_bar">#000000</color>
+</resources>

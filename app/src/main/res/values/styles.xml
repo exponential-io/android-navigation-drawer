@@ -1,8 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!--
+        Theme for API level < 21
+        ========================
+    -->
+
+    <style name="Exponential.Theme.Light"
+           parent="Exponential.Theme.Base.Light"/>
+
+    <style name="Exponential.Theme.Light.AppBar"
+           parent="Exponential.Theme.Base.Light.AppBar"/>
+
+    <style name="Exponential.Theme.Light.AppBar.Popup"
+           parent="Exponential.Theme.Base.Light.AppBar.Popup"/>
+
+    <style name="Exponential.Theme.Light.NavigationDrawer"
+           parent="Exponential.Theme.Base.Light.NavigationDrawer"/>
+
+    <!--
+        Base theme
+        ~~~~~~~~~~
+    -->
+
+    <style name="Exponential.Theme.Base.Light"
+           parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Status bar and contextual app bar background: 700 -->
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+
+        <!-- App bar background: 500 -->
+        <item name="colorPrimary">@color/primary</item>
+
+        <!-- App bar font color -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- Color of secondary elements, such as hamburger and overflow menu icon in app bar -->
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="icon">@android:color/white</item>
+
+        <item name="divider">@color/divider</item>
+
+        <!-- Main window / content background -->
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <!-- Navigation bar background: Does not work on pre API 11 -->
+        <!--<item name="navigationBarColor">@color/navigation_bar</item>-->
+
+    </style>
+
+    <!--
+        Base app bar theme
+        ~~~~~~~~~~~~~~~~~~
+    -->
+
+    <style name="Exponential.Theme.Base.Light.AppBar"
+           parent="ThemeOverlay.AppCompat.Dark">
+
+        <!-- background -->
+        <item name="android:background">@color/primary</item>
+
+    </style>
+
+    <style name="Exponential.Theme.Base.Light.AppBar.Popup"
+           parent="ThemeOverlay.AppCompat.Light">
+
+        <!-- background -->
+        <item name="android:background">@android:color/white</item>
+
+    </style>
+
+    <!--
+        Base NavigationDrawer theme
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+
+    <style name="Exponential.Theme.Base.Light.NavigationDrawer"
+           parent="ThemeOverlay.AppCompat.Light">
+
+        <!-- background -->
+        <item name="android:background">@android:color/white</item>
+
     </style>
 
 </resources>

@@ -164,8 +164,8 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 
 ## Update the theme
 
-We must disable the default `ActionBar` before we can create a `Toolbar` and set it as the
-`ActionBar`.
+We are now going to update the theme to support Material Design. Also, we must disable the default
+`ActionBar` in our theme before we can create a `Toolbar` and set it as the `ActionBar`.
 
 ### Colors
 
@@ -184,7 +184,7 @@ We must disable the default `ActionBar` before we can create a `Toolbar` and set
 ### Set style in `AndroidManifest.xml`
 
 - In `AndroidManifest.xml` change `android:theme="@style/AppTheme"` to
-  `android:theme="@style/Exponential.Theme.Colors"`.
+  `android:theme="@style/Exponential.Theme.Light"`.
 
 
 ## Create the ActionBar

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Theme for API level >= 21
+        =========================
+    -->
+    <style name="Exponential.Theme.Light"
+           parent="Exponential.Theme.Base.Light">
+
+        <!-- Status bar and contextual app bar background: 700 -->
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+
+        <!-- App bar background: 500 -->
+        <item name="android:colorPrimary">@color/primary</item>
+
+        <!-- App bar font color -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- Color of secondary elements, such as hamburger and overflow menu icon in app bar -->
+        <item name="android:colorAccent">@color/accent</item>
+
+        <item name="android:icon">@android:color/white</item>
+
+        <item name="android:divider">@color/divider</item>
+
+        <!-- Main window / content background -->
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <!-- Navigation bar background (must be black or transparent -->
+        <item name="android:navigationBarColor">@color/navigation_bar</item>
+    </style>
+
+    <!--
+        App bar for API level >= 21
+        ===========================
+    -->
+
+    <style name="Exponential.Theme.AppBar"
+           parent="Exponential.Theme.Base.Light.AppBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Exponential.Theme.AppBar.Popup"
+           parent="Exponential.Theme.Base.Light.AppBar.Popup">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!--
+        NavigationDrawer for API level >= 21
+        ====================================
+    -->
+
+    <style name="Exponential.Theme.NavigationDrawer"
+           parent="Exponential.Theme.Base.Light.NavigationDrawer">
+        <!-- Customize your theme here. -->
+    </style>
+
+</resources>
