@@ -149,8 +149,8 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 
 ### Update `activity_b.xml`.
 
-- Delete the `TextView`
-- Insert a `FrameLayout` in the `RelativeLayout`
+- Delete the `TextView`.
+- Insert a `FrameLayout` with an id of `container` in the `RelativeLayout`.
 
 ### Update `BActivity` to use `BFragment`
 
