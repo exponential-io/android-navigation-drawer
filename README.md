@@ -305,7 +305,36 @@ We need to update the layout of both `MainActivity` and `BActivity` before we cr
 
 ## Create the `NavigationDrawerFragment` Fragment
 
+In this step we'll create a new blank Fragment. This step is separate from the setup to make it easy
+to see what has changed in the source file via the git log.
+
 - Create a new blank Fragment named `NavigationDrawerFragment`.
+
+
+### Setup the `NavigationDrawerFragment` Fragment
+
+In this step we'll do basic updates to `NavigationDrawerFragment.java`. The updates in this step are
+similar to those that are done on any new Fragment.
+
+- Change `import android.app.Fragment;` to `import android.support.v4.app.Fragment;`.
+- Delete all unneeded comments.
+- Create a new constant named `ARG_BASE`.
+- Change `ARG_PARAM1` to `ARG_PLACEHOLDER` and set the value to `ARG_BASE + "PLACEHOLDER"`.
+- Delete the `onButtonPressed` method.
+- Rename the `OnFragmentInteractionListener` interface to `Callbacks`.
+- Rename `mParam1` to `placeholder`.
+- Rename `mListener` to `callbacks`.
+- Delete `ARG_PARAM2`.
+- Delete `mParam2`.
+- Delete `param2` from `newInstance`.
+- In `newInstance`, rename the `param1` parameter to `placeholder`.
+- In `onCreateView`, split the return statement into assignment and return.
+- Rename the `onFragmentInteraction` interface method to `placeholderCallback` and change the method
+  signature to `public void placeholderCallback(String placeholderArg);`.
+
+
+
+
 
 
 ## Add `DrawerLayout` to `activity_layout.xml`
