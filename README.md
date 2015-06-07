@@ -159,7 +159,7 @@ implement the `NavigationDrawer` (which comes later in this tutorial).
 
 ## Start `BActivity` in `MainActivity.displayBActivity()`
 
-- Call `startActivity()` in `MainActivity.displayBActivity()`
+- In `MainActivity.displayBActivity()`, start `BActivity` via an `Intent` and `startActivity()`.
 
 
 ## Update the theme

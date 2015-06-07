@@ -1,5 +1,6 @@
 package io.exponential.androidnavigationdrawer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements MainFragmentCallb
 
     @Override
     public void displayBActivity() {
-        // do nothing yet...
+        // Avoid creating a single use variable named "intent" as we are not passing any values in
+        // a bundle.
+        startActivity(new Intent(MainActivity.this, BActivity.class));
     }
 }
