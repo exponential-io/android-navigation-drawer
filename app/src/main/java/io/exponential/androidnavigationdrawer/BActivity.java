@@ -2,6 +2,7 @@ package io.exponential.androidnavigationdrawer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,6 +13,10 @@ public class BActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b);
+
+        // Set the app_bar Toolbar as the ActionBar
+        // Note: Unlike MainActivity, we avoid creating a single use variable named 'appbar'.
+        setSupportActionBar((Toolbar) findViewById(R.id.app_bar));
 
         // Add the BFragment Fragment via chaining so that we don't have to create single use
         // variables.

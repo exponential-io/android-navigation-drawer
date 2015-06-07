@@ -202,16 +202,22 @@ to refer to the ActionBar as the "app bar". Therefore, we will name our Toolbar 
 
 ## Set the `Toolbar` as the `ActionBar`
 
+Get a reference to the `app_bar` in the `MainActivity` layout, then set the `Toolbar` as the
+`ActionBar`.
+
 - In `layout/activity_main.xml`, include the `actionbar` layout.
 - In `layout/activity_main.xml`, remove all of the padding from `RelativeLayout`.
 - In `MainActivity.onCreate()` find the Toolbar and call `setSupportActionBar()`
 
 
-## Use the ActionBar in `BActivity`
+## Set the `app_bar` `Toolbar` as the `ActionBar` in `BActivity`
+
+Currently we have two activities, `MainActivity` and `BActivity`. The `BActivity` layout and class
+both need to be updated to use the `app_bar` `Toolbar` as the `ActionBar`.
 
 - In `layout/activity_b.xml`, include the `actionbar` layout.
 - In `layout/activity_b.xml`, remove all of the padding from `RelativeLayout`.
-- In `BActivity.onCreate()` find the Tool   bar and call `setSupportActionBar()`
+- In `BActivity.onCreate()` find the `app_bar` `Toolbar` and call `setSupportActionBar()`
 
 
 ## Add the up button to the ActionBar
