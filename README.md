@@ -362,10 +362,28 @@ similar to those that are done on any new Fragment.
     - `xmlns:app="http://schemas.android.com/apk/res-auto"`
     - `android:fitsSystemWindows="true"`
 - Add a `FrameLayout` for the `NavigationDrawer` below `LinearLayout`.
-- Add the following attributes to the `FrameLayout`:
+- Add the following attributes to `FrameLayout`:
     - `android:layout_gravity="start"`
     - `android:layout_width="@dimen/navigation_drawer_width"`
     - `android:layout_height="match_parent"`
+
+### Wrap `fragment_amain.xml`, `fragment_bmain.xml`, `fragment_cmain.xml` in `ScrollView`
+
+- Update `fragment_amain.xml` as follows:
+    - Add a new root element of `ScrollView`
+    - Move the following attributes from `RelativeLayout` to `ScrollView`:
+        - `xmlns:android`
+        - `xmlns:tools`
+        - `tools:context`
+    - Add the following attributes to `ScrollView`:
+        - `android:layout_width="match_parent"`
+        - `android:layout_height="match_parent"`
+        - `android:paddingBottom="@dimen/activity_vertical_margin"`
+        - `android:paddingLeft="@dimen/activity_horizontal_margin"`
+        - `android:paddingRight="@dimen/activity_horizontal_margin"`
+        - `android:paddingTop="@dimen/activity_vertical_margin"`
+- Update `fragment_bmain.xml` using the same steps as above.
+- Update `fragment_cmain.xml` using the same steps as above.
 
 ### Update `MainActivity`
 
