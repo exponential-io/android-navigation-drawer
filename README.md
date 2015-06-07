@@ -339,12 +339,11 @@ similar to those that are done on any new Fragment.
     - `android:id="@+id/navigation_drawer"`
     - `xmlns:app="http://schemas.android.com/apk/res-auto"`
     - `app:theme="@style/Exponential.Theme.Light.NavigationDrawer"`
--
 
 ### Update the theme
 
-- Add the `ic_drawer.png` icon
-- Add open and close to `strings.xml`.
+- Add the `ic_drawer.png` icon.
+- Add `drawer_open` and `drawer_close` to `strings.xml`.
 - Review the `NavigationDrawer` styles in the following files:
     - `values/styles.xml`
     - `values-v21/styles.xml`
@@ -352,6 +351,9 @@ similar to those that are done on any new Fragment.
     - `values-land/dimens.xml`
 
 ### Add the `DrawerLayout` to `activity_main.xml`
+
+- Add a new root element of `android.support.v4.widget.DrawerLayout`.
+- Add a `FrameLayout` for the `NavigationDrawer`.
 
 ### Update `MainActivity`
 
