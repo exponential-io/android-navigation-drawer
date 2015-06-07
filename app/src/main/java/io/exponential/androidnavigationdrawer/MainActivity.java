@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -15,6 +16,11 @@ public class MainActivity extends AppCompatActivity implements MainFragmentCallb
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // ActionBar / Toolbar / app bar
+        Toolbar appbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(appbar);
+
+        // Add fragments
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
         AMainFragment aMainFragment = AMainFragment.newInstance("Hi from MainActivity.onCreate");

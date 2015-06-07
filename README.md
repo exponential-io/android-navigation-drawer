@@ -187,7 +187,7 @@ We are now going to update the theme to support Material Design. Also, we must d
   `android:theme="@style/Exponential.Theme.Light"`.
 
 
-## Create the ActionBar (app bar)
+## Create the Toolbar (app bar)
 
 Next, we will create a Toolbar and set it as the ActionBar. In terms of naming, Google has started
 to refer to the ActionBar as the "app bar". Therefore, we will name our Toolbar ActionBar as
