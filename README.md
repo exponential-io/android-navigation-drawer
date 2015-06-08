@@ -516,8 +516,45 @@ Run the application. Notice how the image in the `NavigationDrawer` can be seen 
 bar (which is semi-transparent).
 
 
+# Section 4: `RecyclerView` in `NavigationDrawer`
+
+## Add `RecyclerView` dependency to `app/build.gradle`
+
+- Add the following in `dependencies` below `appcompat`:
+
+```
+compile 'com.android.support:recyclerview-v7:21.0.+'
+```
+
+## Import several icons
+
+Import 4 icons from the **Android Design Icons** package. Ensure that the icons are from the
+HOLO_LIGHT theme.
+
+> Material Design icons are available from https://www.google.com/design/icons/.
+
+- Import 5 icons into the `drawable` folder.
+
+## Update `fragment_navigation_drawer.xml`
+
+## Create `res/layout/menu_item.xml`
+
+## Create `NavigationMenuItem`
+
+`NavigationMenuItem` is a model.
+
+## Create `NavigationMenuAdapter`
+
+## Update `NavigationDrawerFragment`
 
 
+# Section 5: Handle click events in `RecyclerView` in `NavigationDrawer`
+
+##
+
+## Pass click events up to Activity
+
+## Display different Fragments based on click events
 
 
 
