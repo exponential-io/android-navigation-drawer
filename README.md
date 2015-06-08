@@ -501,6 +501,20 @@ Run the application. When you view the `NavigationDrawer` you will now see an im
 
 ### Update `MainActivity` to make the status bar transparent
 
+- Delete `drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary_dark));`
+  and change the code to:
+
+```java
+// Make the StatusBar transparent
+// TODO: Set the StatusBar background color via a style
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    getWindow().setStatusBarColor(Color.TRANSPARENT);
+}
+```
+
+Run the application. Notice how the image in the `NavigationDrawer` can be seen behind the status
+bar (which is semi-transparent).
+
 
 
 

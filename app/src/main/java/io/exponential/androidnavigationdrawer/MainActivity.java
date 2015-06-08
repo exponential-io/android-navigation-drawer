@@ -2,6 +2,8 @@ package io.exponential.androidnavigationdrawer;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -72,7 +74,12 @@ public class MainActivity extends AppCompatActivity
         };
 
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
-        drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary_dark));
+
+        // Make the StatusBar transparent
+        // TODO: Set the StatusBar background color via a style
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
