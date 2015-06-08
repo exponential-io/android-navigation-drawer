@@ -472,6 +472,9 @@ Run the application. The search icon in the `ActionBar` should now be hidden whe
 
 ### Update `fragment_navigation_drawer.xml`
 
+- View the commit log changes for the new code to add to `fragment_navigation_drawer.xml`.
+- Create a new string named `placeholder`.
+
 ### Update `NavigationDrawerFragment`
 
 
