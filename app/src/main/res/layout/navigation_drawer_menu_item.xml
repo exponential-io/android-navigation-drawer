@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/item_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <!--
+        Defining static sizes here instead of using dimens.xml is not a good practice.
+        However, we'll define static sizes to keep this tutorial focused on the
+        NavigationDrawer.
+    -->
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/avatar"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder"
+        android:layout_toRightOf="@id/icon"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_number"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>

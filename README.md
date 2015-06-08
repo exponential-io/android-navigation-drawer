@@ -549,11 +549,49 @@ HOLO_LIGHT theme.
     - `android:scrollbars="vertical"`
 
 
-## Create `res/layout/menu_item.xml`
+## Create `res/layout/navigation_drawer_menu_item.xml`
 
-## Create `NavigationMenuItem`
+`navigation_drawer_menu_item` is a layout that displays an individual NavigationDrawer menu item
+(each menu item is displayed a row within the `RecyclerView`).
 
-`NavigationMenuItem` is a model.
+- Create a new layout named `navigation_drawer_menu_item.xml` with a **Root element** of
+  `RelativeLayout`.
+- Add the following attributes to the `RelativeLayout` element:
+    - `android:id="@+id/item_container"`
+    - `android:layout_height="48dp"`
+    - `android:paddingLeft="16dp"`
+    - `android:paddingRight="16dp"`
+- Insert an `ImageView` and set the following attributes:
+    - `android:id="@+id/icon"`
+    - `android:layout_width="48dp"`
+    - `android:layout_height="48dp"`
+    - `android:src="@drawable/avatar"`
+    - `android:layout_centerVertical="true"`
+    - `android:layout_marginRight="16dp"`
+- Insert a `TextView` and set the following attributes:
+    - `android:id="@+id/title"`
+    - `android:layout_width="wrap_content"`
+    - `android:layout_height="wrap_content"`
+    - `android:text="@string/placeholder"`
+    - `android:layout_toRightOf="@id/icon"`
+    - `android:layout_centerVertical="true"`
+    - `android:textStyle="bold"`
+    - `android:textSize="14sp"`
+- Insert a `TextView` and set the following attributes:
+    - `android:id="@+id/count"`
+    - `android:layout_width="25dp"`
+    - `android:layout_height="wrap_content"`
+    - `android:text="@string/placeholder_number"`
+    - `android:gravity="center"`
+    - `android:layout_centerVertical="true"`
+    - `android:layout_alignParentRight="true"`
+    - `android:layout_alignParentEnd="true"`
+- Define a new string resource named `placeholder_number` with a value of `00+`.
+
+
+## Create `NavigationDrawerMenuItem`
+
+`NavigationDrawerMenuItem` is a model that represents an individual menu item's data.
 
 ## Create `NavigationMenuAdapter`
 
