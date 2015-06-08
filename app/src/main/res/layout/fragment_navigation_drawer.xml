@@ -70,11 +70,13 @@
         android:layout_marginBottom="8dp"
         android:background="#1f000000"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/navigation_menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:layout_below="@id/separator"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/separator"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:scrollbars="vertical"/>
 
 </RelativeLayout>

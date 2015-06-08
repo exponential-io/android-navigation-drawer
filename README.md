@@ -537,6 +537,18 @@ HOLO_LIGHT theme.
 
 ## Update `fragment_navigation_drawer.xml`
 
+- Delete the unused `TextView` at the bottom of the layout.
+- Insert a `android.support.v7.widget.RecyclerView` element below the `separator` `View`.
+- Set the following attributes on the `RecyclerView`:
+    - `android:id="@+id/navigation_menu"`
+    - `android:layout_width="match_parent"`
+    - `android:layout_height="match_parent"`
+    - `android:layout_below="@+id/separator"`
+    - `android:background="@android:color/white"`
+    - `android:clickable="true"`
+    - `android:scrollbars="vertical"`
+
+
 ## Create `res/layout/menu_item.xml`
 
 ## Create `NavigationMenuItem`
