@@ -477,6 +477,33 @@ Run the application. The search icon in the `ActionBar` should now be hidden whe
 
 ### Update `NavigationDrawerFragment`
 
+- Change `ARG_PLACEHOLDER` to `ARG_USERNAME`.
+- Change the value of `ARG_USERNAME` to `ARG_BASE + "USERNAME"`.
+- Create two new constants named `ARG_EMAIL` and `ARG_AVATAR`.
+- Change the member variable named `placeholder` to `username`.
+- Create two new private members named `email` and `avatar`. Note that `avatar` is an `int`.
+- Make the following updates to `newInstance`:
+    - Rename the parameter named `placeholder` to `username`.
+    - Create two new arguments named `email` and `avatar`.
+    - Add both new arguments to the `Bundle` via `putString` and `putInt`.
+- Make the following updates to `onCreate`.
+    - Get both new arguments and save them to the associated member variable.
+- Make the following updates to `onCreateView`:
+    - Display the `username` in the `username` `TextView`.
+    - Display the `email` in the `email` `TextView`.
+    - Display the `avatar` in the `avatar` `ImageView`.
+- Make the following bug fixes to `fragment_navigation_drawer.xml`:
+    - In the last `TextView`, set the height to `android:layout_height="wrap_content"`.
+    - Add the `android:layout_below="@id/separator"` attribute.
+
+Run the application. When you view the `NavigationDrawer` you will now see an image. However, the
+`NavigationDrawer` will not yet appear as transparent behind the status bar.
+
+### Update `MainActivity` to make the status bar transparent
+
+
+
+
 
 
 
