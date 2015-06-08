@@ -12,8 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.Switch;
 import android.widget.Toast;
 
 
@@ -21,7 +19,8 @@ public class MainActivity extends AppCompatActivity
     implements MainFragmentCallbacks, NavigationDrawerFragment.Callbacks {
 
     private DrawerLayout drawerLayout;
-    private FrameLayout navigationDrawerLayout;
+    //private FrameLayout navigationDrawerLayout;
+    private ScrimInsetsFrameLayout navigationDrawerScrim;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
@@ -39,14 +38,21 @@ public class MainActivity extends AppCompatActivity
         AMainFragment aMainFragment = AMainFragment.newInstance("Hi from MainActivity.onCreate");
         ft.add(R.id.container, aMainFragment);
 
-        NavigationDrawerFragment navigationDrawer = NavigationDrawerFragment.newInstance("placeholder");
+        // In a production app there would likely be a User object that represents the current user.
+        String username = "Akbar S. Ahmed";
+        String email = "akbar@example.com";
+        int avatar = R.drawable.avatar;
+
+        NavigationDrawerFragment navigationDrawer = NavigationDrawerFragment
+            .newInstance(username, email, avatar);
         ft.add(R.id.navigation_drawer, navigationDrawer);
 
         ft.commit();
 
         // NavigationDrawer
         drawerLayout = (DrawerLayout) findViewById(R.id.navigation_drawer_layout);
-        navigationDrawerLayout = (FrameLayout) findViewById(R.id.navigation_drawer);
+        //navigationDrawerLayout = (FrameLayout) findViewById(R.id.navigation_drawer);
+        navigationDrawerScrim = (ScrimInsetsFrameLayout) findViewById(R.id.navigation_drawer_inset);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, appbar,
             R.string.drawer_open, R.string.drawer_close) {
 
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity
         };
 
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary_dark));
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -104,7 +111,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // ref: https://developer.android.com/training/implementing-navigation/nav-drawer.html#OpenClose
-        boolean drawerOpen = drawerLayout.isDrawerOpen(navigationDrawerLayout);
+        boolean drawerOpen = drawerLayout.isDrawerOpen(navigationDrawerScrim);
 
         // Hide the Search options menu button when the navigation drawer is open, and show the
         // Search options menu button when the navigation drawer is closed.

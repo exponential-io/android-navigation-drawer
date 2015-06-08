@@ -455,9 +455,20 @@ Run the application. The search icon in the `ActionBar` should now be hidden whe
     - Add `android:fitsSystemWindows="true"`.
     - Add `app:insetForeground="#4000"`.
 
-
-
 ### Update `MainActivity`
+
+- Update the `onCreate` method as follows:
+    - Programmatically update the status bar background color via
+      `drawerLayout.setStatusBarBackgroundColor`.
+    - Define 3 local variables inside `onCreate` for `username`, `email`, and `avatar`.
+    - Update the call to `NavigationDrawerFragment.newInstance()` by passing `username`, `email`, and
+      `avatar` as arguments.
+    - Change `private FrameLayout navigationDrawerLayout;` to
+      `private ScrimInsetsFrameLayout navigationDrawerScrim;`.
+    - Change `navigationDrawerLayout = (FrameLayout) findViewById(R.id.navigation_drawer);` to
+      `navigationDrawerScrim = (ScrimInsetsFrameLayout) findViewById(R.id.navigation_drawer_inset);`.
+- Update the `onPrepareOptionsMenu` method as follows:
+    - Change `navigationDrawerLayout` to `navigationDrawerScrim`.
 
 ### Update `fragment_navigation_drawer.xml`
 
