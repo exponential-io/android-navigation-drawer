@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -193,6 +194,28 @@ public class MainActivity extends AppCompatActivity
     public void setHomeScreen(int menuPosition) {
         // Get the current NavigationDrawerMenuItem
         NavigationDrawerMenuItem item = NavigationDrawerFragment.getNavigationDrawerMenuItem(menuPosition);
-        Toast.makeText(MainActivity.this, "onClick(Activity): " + item.getTitle(), Toast.LENGTH_SHORT).show();
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        // Default Fragment to display in the content container
+        // Notice that we are defining contentFragment as a Fragment, which is the parent class of
+        // AMainFragment, BMainFragment, and CMainFragment.
+        Fragment contentFragment = AMainFragment.newInstance("Hi from MainActivity.onCreate");
+
+        if (item.getTitle().equals("Assignments")) {
+            contentFragment = BMainFragment.newInstance("Click: Assignments");
+        } else if (item.getTitle().equals("Books")) {
+            contentFragment = CMainFragment.newInstance("Click: Books");
+        } else if (item.getTitle().equals("Dashboard")) {
+            contentFragment = AMainFragment.newInstance("Click: Dashboard");
+        } else if (item.getTitle().equals("Q&A")) {
+            contentFragment = BMainFragment.newInstance("Click: Q&A");
+        }
+
+        ft.replace(R.id.container, contentFragment);
+        ft.commit();
+
+        // Close the NavigationDrawer
+        drawerLayout.closeDrawer(navigationDrawerScrim);
     }
 }

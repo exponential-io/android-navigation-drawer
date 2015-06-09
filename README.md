@@ -657,3 +657,17 @@ We need to update `NavigationDrawerFragment` by adding event listeners.
     - Override the new Callbacks method `setHomeScreen`.
 
 ## Display different Fragments based on click events
+
+At the beginning of this tutorial we created 3 Fragments: `AMainFragment`, `BMainFragment`, and
+`CMainFragment`. In this section, we will display a different Fragment each time the user clicks
+an item in the `RecyclerView` menu in the `NavigationDrawer`.
+
+- In `MainActivity`, update the `setHomeScreen` method as follows:
+    - Delete the `Toast`.
+    - Start a new `FragmentTransaction`.
+    - Create `contentFragment` as type `Fragment`, which is the parent class of `AMainFragment`, `
+      BMainFragment`, and `CMainFragment`.
+    - Randomly assign one of 3 Fragments to the `contentFragment`.
+    - `.replace()` the Fragment in the layout's `container`.
+    - `.commit()` the `FragmentTransaction`.
+    - Close the `NavigationDrawer`.
