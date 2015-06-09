@@ -124,13 +124,13 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 NavigationDrawerMenuItem item = getNavigationDrawerMenuItem(position);
-                Toast.makeText(getActivity(), "onClick: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                callbacks.setHomeScreen(position);
             }
 
             @Override
             public void onLongClick(View view, int position) {
                 NavigationDrawerMenuItem item = getNavigationDrawerMenuItem(position);
-                Toast.makeText(getActivity(), "onLongClick: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                callbacks.setHomeScreen(position);
             }
         };
 
@@ -161,7 +161,7 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     public interface Callbacks {
-        public void placeholderCallback(String placeholderArg);
+        public void setHomeScreen(int menuPosition);
     }
 
     /**
@@ -170,7 +170,7 @@ public class NavigationDrawerFragment extends Fragment {
      * @param position Position of item
      * @return The NavigationDrawerMenuItem located at position.
      */
-    private static NavigationDrawerMenuItem getNavigationDrawerMenuItem(int position) {
+    public static NavigationDrawerMenuItem getNavigationDrawerMenuItem(int position) {
         // Get the entire menu
         List<NavigationDrawerMenuItem> menu = getNavigationDrawerMenu();
 

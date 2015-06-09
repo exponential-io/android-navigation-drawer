@@ -190,7 +190,9 @@ public class MainActivity extends AppCompatActivity
     // NavigationDrawerFragment.Callbacks
 
     @Override
-    public void placeholderCallback(String placeholderArg) {
-        // do nothing for now
+    public void setHomeScreen(int menuPosition) {
+        // Get the current NavigationDrawerMenuItem
+        NavigationDrawerMenuItem item = NavigationDrawerFragment.getNavigationDrawerMenuItem(menuPosition);
+        Toast.makeText(MainActivity.this, "onClick(Activity): " + item.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }

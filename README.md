@@ -645,4 +645,15 @@ We need to update `NavigationDrawerFragment` by adding event listeners.
 
 ## Pass click events up to Activity
 
+- Update `NavigationDrawerFragment` as follows:
+    - Delete the `placeholderCallback` method signature in the `Callbacks` interface.
+    - Add the `setHomeScreen` method to the `Callbacks` interface.
+    - In `onCreateView`, in `clickListener` remove `Toast` and call the `callbacks.setHomeScreen`
+      callback method to communicate the click up to the Activity.
+    - Change the `getNavigationDrawerMenuItem` method from `private` to `public` so that the
+      Activity can call this method to get an individual menu item.
+- Update `MainActivity` as follows:
+    - Delete the `placeholderCallback` method implementation.
+    - Override the new Callbacks method `setHomeScreen`.
+
 ## Display different Fragments based on click events
