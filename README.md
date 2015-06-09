@@ -626,82 +626,23 @@ the fields in the `NavigationDrawerMenuItem` and the Views in the `navigation_dr
 - Define a new method `getNavigationDrawerMenu` that returns a `List` of `NavigationMenuDrawerItem`
   instances. See the git commit for the body of the method.
 
+Run the application. You will now see a `RecyclerView` menu in the `NavigationDrawer`. However, if
+you click on a menu item then you'll notice that nothing happens. In the next section, we'll add
+event handlers for the menu item click events.
 
 # Section 5: Handle click events in `RecyclerView` in `NavigationDrawer`
 
-##
+## Handle `RecyclerView` menu item click events
+
+We need to update `NavigationDrawerFragment` by adding event listeners.
+
+- Update `NavigationDrawerFragment` as follows:
+    - Create a new interface: `public interface ClickListener`.
+    - Create a new inner class:
+      `class RecyclerTouchListener implements RecyclerView.OnItemTouchListener`.
+    - Create a new private method named `getNavigationDrawerMenuItem`.
+    - In `onCreateView`, add ``.
 
 ## Pass click events up to Activity
 
 ## Display different Fragments based on click events
-
-
-
-
-
-
-
-
-## Create the NavigationDrawer
-
-- in activity_main.xml, change the root element to `android.support.v4.widget.DrawerLayout`. Push
-  `LinearLayout` down one level in the layout's View hierarchy.
-- Set the width for the drawer in both `values/dimens.xml` and `values-land/dimens.xml`.
-- Create NavigationDrawerFragment
-    - Change 'import android.app.Fragment;' to `import android.support.v4.app.Fragment;`
-    - Make all other standard updates to a Fragment
-        - Change `OnFragmentInteractionListener` to `Callbacks`
-        - Change `mListener` to `callbacks`
-        - Delete the `public void onButtonPressed` method
-        - Rename the static args, the args members, and the newInstance() method as necessary
-        - In `onCreateView()`, get an instance of `View`, then return it.
-- Update fragment_navigation_drawer
-    - Change the root element from `FrameLayout` to `RelativeLayout`
-- Create an instance of `NavigationDrawerFragment` in `MainActivity` and insert it into
-  `activity_main_navigation_drawer` in `activity_main.xml`
-
-
-## NavigationDrawer theme
-
-- Create a style for navigation drawer
-- Set the theme in `fragment_navigation_drawer.xml` via `app:theme`
-- Add default 16dp padding to `fragment_navigation_drawer.xml`
-
-
-#### Add listeners for drawer events via `setDrawerListener()` in Activity
-
-Setting a listener for the NavigationDrawer is similar to setting a listener for a button or other
-clickable element.
-
-- Import hamburger image
-- update Activity onCreate
-    - drawerLayout
-    - drawerFragmentLayout
-    - drawerToggle
-    - setDrawerListener
-    - setDisplayHomeAsUpEnabled
-    - setHomeButtonEnabled
-- update Activity onPrepareOptionsMenu
-- override onPostCreate()
-- override onConfigurationChanged()
-- update onPrepareOptionsMenu()
-- Add app icon to toggle NavigationDrawer
-
-
-ref: https://developer.android.com/training/implementing-navigation/nav-drawer.html
-ref: https://medium.com/sebs-top-tips/material-navigation-drawer-sizing-558aea1ad266
-
-### Make NavigationDrawer appear under a transparent Status Bar
-
-- Save ScrimInsetsFrameLayout.java into my project
-    - https://github.com/google/iosched/blob/master/android/src/main/java/com/google/samples/apps/iosched/ui/widget/ScrimInsetsFrameLayout.java
-- Create res/values/attrs.xml
-- Update `activity_main.xml` by setting `android:fitsSystemWindows="true"` on both `DrawerLayout`
-  and `ScrimInsetsFrameLayout`.
-    - add ScrimInsetsFrameLayout
-- Update `fragment_navigation_drawer.xml`. (Major design update)
-- Add username, email, avatar to `NavigationDrawerFragment.java`
-- Update `MainActivity.java` to point drawerFragmentLayout to ScrimInsetsFrameLayout
-
-
-# Section 4: RecyclerView menu in NavigationDrawer
