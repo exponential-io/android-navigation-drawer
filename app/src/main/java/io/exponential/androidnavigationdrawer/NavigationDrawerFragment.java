@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class NavigationDrawerFragment extends Fragment {
@@ -25,6 +29,8 @@ public class NavigationDrawerFragment extends Fragment {
     private String email;
     private int avatar;
     private Callbacks callbacks;
+    private RecyclerView navigationDrawerMenuRecyclerView;
+    private NavigationDrawerMenuAdapter navigationDrawerMenuAdapter;
 
     /**
      * Factory method to create a new instance of NavigationDrawerFragment.
@@ -86,6 +92,19 @@ public class NavigationDrawerFragment extends Fragment {
             .create(res, avatarImage);
         roundedAvatarImage.setCornerRadius(Math.max(avatarImage.getWidth(), avatarImage.getHeight()) / 2.0f);
         avatarImageView.setImageDrawable(roundedAvatarImage);
+
+        // NavigationDrawer RecyclerView menu
+        // Get a reference to the navigation_menu RecyclerView in the layout
+        navigationDrawerMenuRecyclerView = (RecyclerView) view.findViewById(R.id.navigation_menu);
+        // Create an instance of the adapter by passing in the context (getActivity) and the list
+        // of menu items (getNavigationDrawerMenu). getNavigationDrawerMenu() is a method that we
+        // defined below to return a list of NavigationDrawerMenuItem instances.
+        navigationDrawerMenuAdapter = new NavigationDrawerMenuAdapter(getActivity(), getNavigationDrawerMenu());
+        // Set the RecyclerView's adapter to the NavigationDrawer's menu adapter
+        navigationDrawerMenuRecyclerView.setAdapter(navigationDrawerMenuAdapter);
+        // Set the RecyclerView's layout manager to a layout manager that is provided by Android
+        navigationDrawerMenuRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         return view;
     }
 
@@ -107,6 +126,38 @@ public class NavigationDrawerFragment extends Fragment {
 
     public interface Callbacks {
         public void placeholderCallback(String placeholderArg);
+    }
+
+    private static List<NavigationDrawerMenuItem> getNavigationDrawerMenu() {
+        List<NavigationDrawerMenuItem> menu = new ArrayList<>();
+
+        int[] icons = {
+            R.drawable.ic_assignment_black,
+            R.drawable.ic_book_black,
+            R.drawable.ic_dashboard_black,
+            R.drawable.ic_question_answer_black
+        };
+
+        String[] titles = {
+            "Assignments",
+            "Books",
+            "Dashboard",
+            "Q&A"
+        };
+
+        int[] count = {
+            15,
+            4,
+            12,
+            54
+        };
+
+        for (int i = 0; i < icons.length && i < titles.length && i < count.length; i++) {
+            NavigationDrawerMenuItem item = new NavigationDrawerMenuItem(icons[i], titles[i], count[i]);
+            menu.add(item);
+        }
+
+        return  menu;
     }
 
 }

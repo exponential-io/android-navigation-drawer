@@ -614,6 +614,18 @@ the fields in the `NavigationDrawerMenuItem` and the Views in the `navigation_dr
 
 ## Update `NavigationDrawerFragment`
 
+- Create two new private members:
+    - `private RecyclerView navigationDrawerMenuRecyclerView;`
+    - `private NavigationDrawerMenuAdapter navigationDrawerMenuAdapter;`
+- Update `onCreateView` by adding the following code immediately before `return view;`:
+    - `// Navigation menu`
+    - `navigationDrawerMenuRecyclerView = (RecyclerView) view.findViewById(R.id.navigation_menu);`
+    - `navigationDrawerMenuAdapter = new NavigationMenuAdapter(getActivity(), getNavigationDrawerMenu());`
+    - `navigationDrawerMenuRecyclerView.setAdapter(navigationDrawerMenuAdapter);`
+    - `navigationDrawerMenuRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));`
+- Define a new method `getNavigationDrawerMenu` that returns a `List` of `NavigationMenuDrawerItem`
+  instances. See the git commit for the body of the method.
+
 
 # Section 5: Handle click events in `RecyclerView` in `NavigationDrawer`
 
