@@ -593,6 +593,15 @@ HOLO_LIGHT theme.
 
 `NavigationDrawerMenuItem` is a model that represents an individual menu item's data.
 
+- Create a new Java class named `NavigationDrawerMenuItem`.
+- Define the following private members:
+    - `private int imageId;`
+    - `private String title;`
+    - `private int count;`
+- Define a constructor that includes all 3 private members as parameters.
+- Define an empty constructor.
+- Define getters and setters for all 3 private members.
+
 ## Create `NavigationMenuAdapter`
 
 ## Update `NavigationDrawerFragment`
