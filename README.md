@@ -602,7 +602,15 @@ HOLO_LIGHT theme.
 - Define an empty constructor.
 - Define getters and setters for all 3 private members.
 
-## Create `NavigationMenuAdapter`
+## Create `NavigationDrawerMenuAdapter`
+
+`NavigationDrawerMenuAdapter` is a data adapter which means that it defines an association between
+the fields in the `NavigationDrawerMenuItem` and the Views in the `navigation_drawer_menu_item`.
+
+- Create a new Java class named `NavigationDrawerMenuAdapter`.
+- Update the class definition with
+  `extends RecyclerView.Adapter<NavigationDrawerMenuAdapter.MenuViewHolder>`.
+- View the git commit for the body of the class.
 
 ## Update `NavigationDrawerFragment`
 
